@@ -1,7 +1,7 @@
 {
     "project_name": "rest_api",
     "project_version": "1.0.0",
-    "project_url": "https://github.com/vbraw/rest_api_php",
+    "project_url": "https://github.com/vbrawl/rest_api_php",
     "project_requirements": {},
     "project_library_directory": "pm_library",
     "project_input_resource_directory": "resources",
