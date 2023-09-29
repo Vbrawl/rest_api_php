@@ -7,7 +7,7 @@ namespace REST_API {
     function getParameter(string $key, array $parameter_list, string $type = 'string') {
         $result = null;
 
-        if(isset($parameter_list[$key])) {
+        if(isset($parameter_list[$key]) && $parameter_list[$key] !== '') {
             $result = $parameter_list[$key];
             switch ($type) {
                 case 'int':
@@ -45,20 +45,12 @@ namespace REST_API {
                     }
                     break;
                 
-                case 'string':
-                    if($result === '') {
-                        $result = null;
-                    }
-                    break;
-                
                 case 'secure_string':
                 case 'sstring':
-                    if($result === '') {
-                        $result = null;
-                    }
-                    else {
-                        $result = htmlspecialchars($result);
-                    }
+                    $result = htmlspecialchars($result);
+                    break;
+                
+                case 'string':
                     break;
             }
         }
