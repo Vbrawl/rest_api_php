@@ -63,7 +63,7 @@ namespace REST_API {
             }
         }
 
-        return $parameter_list[$key];
+        return $result;
     }
 
 
