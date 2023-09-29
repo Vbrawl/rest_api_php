@@ -69,6 +69,7 @@ namespace REST_API {
 
     function fail(int $code, string $error) {
         set_rest_code($code);
+        header('Content-Type: application/json');
         echo json_encode(array('error' => $error));
         exit();
     }
