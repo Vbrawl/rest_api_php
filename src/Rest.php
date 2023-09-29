@@ -39,6 +39,7 @@ namespace REST_API {
                 break;
         }
 
+        header('Content-Type: application/json');
         echo json_encode($data);
     }
 
