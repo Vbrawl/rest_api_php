@@ -20,7 +20,7 @@ namespace REST_API {
 
                 case 'unsigned_integer':
                 case 'uint':
-                    $result = filter_var($result, FILTER_VALIDATE_INT, array('min_range' => 0));
+                    $result = filter_var($result, FILTER_VALIDATE_INT, array('options' => array('min_range' => 0)));
             
                     if($result === false) {
                         fail(400, strtoupper($key).' must be an unsigned integer.');
@@ -29,19 +29,19 @@ namespace REST_API {
 
                 case 'positive_integer':
                 case 'pint':
-                    $result = filter_var($result, FILTER_VALIDATE_INT, array('min_range' => 1));
+                    $result = filter_var($result, FILTER_VALIDATE_INT, array('options' => array('min_range' => 1)));
             
                     if($result === false) {
-                        fail(400, strtoupper($key).' must be an positive integer. (>0).');
+                        fail(400, strtoupper($key).' must be a positive integer. (>0).');
                     }
                     break;
 
                 case 'negative_integer':
                 case 'nint':
-                    $result = filter_var($result, FILTER_VALIDATE_INT, array('max_range' => -1));
+                    $result = filter_var($result, FILTER_VALIDATE_INT, array('options' => array('max_range' => -1)));
                 
                     if($result === false) {
-                        fail(400, strtoupper($key).' must be an negative integer. (<0).');
+                        fail(400, strtoupper($key).' must be a negative integer. (<0).');
                     }
                     break;
                 
